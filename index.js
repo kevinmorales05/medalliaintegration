@@ -1,0 +1,25 @@
+/**
+ * @format
+ */
+
+import {AppRegistry, Platform} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
+import { MedalliaDigital } from './sdk/medallia-digital-rn';
+
+const androidToken = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhcGlUb2tlblYyIiwiYXV0aFVybCI6Imh0dHBzOi8vc2V2ZW5lbGV2ZW5tZXgubWQtYXBpcy5tZWRhbGxpYS5jb20vbW9iaWxlU0RLL3YxL2FjY2Vzc1Rva2VuIiwiZW52aXJvbm1lbnQiOiJkaWdpdGFsLWNsb3VkLXdlc3QiLCJjcmVhdGVUaW1lIjoxNjQyMDk4NzQ5OTg1LCJkb21haW4iOiJodHRwczovL3NldmVuZWxldmVubWV4Lm1kLWFwaXMubWVkYWxsaWEuY29tLyIsImFwaVRva2VuVjJWZXJzaW9uIjoyLCJwcm9wZXJ0eUlkIjoxNzg5MTF9.i3Zda3R4YBofFLS9i_RJxrERuZr-s-T6l0sg6gt6p973zAV-BUvc6Ii1ofkLyZahltQvl8CxefhBtmadAFHmKNUJl0h9jHeOm-d9KdJEA5rJi73HpVWf2VMcpYJ0QKnpKm24lan37hivIaiCemxgCEu-Ju3vyf5ZNGgekX2VsPUVrZtmBo9mJzyWBRyQi6n6C_6xjIMoZD_rhU7cEIDuDZJM_mlmGBKvYcmRO8h5DjX6cQvL0c8Poow1DJKxCvQZ9p575m4vlB7-m4QO3xlXCO48Li93McpuViJpdAehy6D3xMvsLYByM7ynlffJUtfwoXpuJ_xcR_bwQqaC82Rlpw";
+const iosToken = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhcGlUb2tlblYyIiwiYXV0aFVybCI6Imh0dHBzOi8vc2V2ZW5lbGV2ZW5tZXgubWQtYXBpcy5tZWRhbGxpYS5jb20vbW9iaWxlU0RLL3YxL2FjY2Vzc1Rva2VuIiwiZW52aXJvbm1lbnQiOiJkaWdpdGFsLWNsb3VkLXdlc3QiLCJjcmVhdGVUaW1lIjoxNjQyMDk4NzQ3NzI4LCJkb21haW4iOiJodHRwczovL3NldmVuZWxldmVubWV4Lm1kLWFwaXMubWVkYWxsaWEuY29tLyIsImFwaVRva2VuVjJWZXJzaW9uIjoyLCJwcm9wZXJ0eUlkIjoxNzg5MDB9.CgyTKSlE0yke6W0n58DWNd-DhHCSwhpzCMiHpcQjz2OIDU42pchIa4qgaPACMNKhVRQgba3FRX6Gsez7kY45ONuQv5bXI9wmjJO1Rav5NyRE9qNu7pl24Uo4QeqHFRJhZB8J4eIyEMyPCCVRTg4EflAhQvDJBrDkPJKP89CYWSfyYwtA-JpLgYMx125aq-q71bv_6wrgIi3HAIXLLhTzVJwVVQsKtxMLp6QVVVr2qriyPAA2ngbdWQflucwr7WZ9dH95ZbQj1OUcyY4IuPGp3kwG4APErE4TT4UCvdx9wkUh0lvQQCmtsb55JpkvvPEUulb5NCrPjexoEFqm_JkGMQ";
+
+if(Platform.OS == 'ios') {
+    try {
+        MedalliaDigital.initialize(iosToken);
+    } catch (error) {
+        console.log(error)
+    }
+   
+}
+else {
+    MedalliaDigital.initialize(androidToken);
+}
+
+AppRegistry.registerComponent(appName, () => App);
